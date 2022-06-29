@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:14:58 by juha              #+#    #+#             */
-/*   Updated: 2022/06/29 16:22:51 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/06/29 16:29:53 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ t_state	is_int_max(int argc, char **argv);
 t_bool	is_duplicate(int argc, char **argv);
 void	check_error(int argc, char **argv);
 
-/*
-//	중복수 안됨
-
-	memcmp 사용하여 중복수 관리.
-*/
 t_bool	is_duplicate(int argc, char **argv)
 {
 	size_t	argv_len;
@@ -90,5 +85,8 @@ void	check_error(int argc, char **argv)
 // 	state = write_error_message("errorCode 3-2 : 잘못된 인자값입니다.");
 	if (state)
 		exit(1);
+	
+	write(1, "success", 7);
+	
 	return ;
 }
