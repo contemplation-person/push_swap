@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 11:30:29 by juha              #+#    #+#             */
-/*   Updated: 2022/06/30 12:16:05 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/06/30 13:37:10 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,11 @@ typedef struct s_circlar_queue
 }	t_circular_q;
 
 t_state	write_error_message(char *message);
-t_state	is_int_max(int argc, char **argv);
+t_bool	is_int_max(char *argv);
 t_bool	is_duplicate(int argc, char **argv);
+t_bool	is_wrong_input(char *argv);
 void	check_error(int argc, char **argv);
+
 
 size_t	change_size_t(const char *str);
 size_t	ft_strlen(const char	*s);
