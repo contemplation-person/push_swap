@@ -6,7 +6,7 @@
 #    By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/27 09:10:21 by juha              #+#    #+#              #
-#    Updated: 2022/06/28 11:07:35 by juha             ###   ########seoul.kr   #
+#    Updated: 2022/06/29 09:00:18 by juha             ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,15 +28,15 @@ $(NAME) : $(OBJS)
 all : $(NAME)
 
 clean :
-	rm -f $(OBJS) 
+	@rm -f $(OBJS) 
 
 fclean : clean
-	rm -f $(NAME) a.out
+	@rm -f $(NAME) a.out
 
 re :
-	make fclean 
-	make all
+	@make fclean 
+	@make all
 
-t : $(NAME) test.c
-	$(CC) $(CPPFLAGS)test.c $(SRC) -g3 -fsanitize=address
-	rm -f *.o *.a
+t : @$(NAME) test.c
+	@$(CC) $(CPPFLAGS)test.c $(SRC) -g3 -fsanitize=address
+	@rm -f *.o *.a

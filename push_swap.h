@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 11:30:29 by juha              #+#    #+#             */
-/*   Updated: 2022/06/28 10:31:01 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/06/30 12:16:05 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,26 @@ typedef enum s_state
 	CONTINUE = 2
 }t_state;
 
+typedef enum s_bool
+{
+	TRUE = -1,
+	FALSE = 0
+}t_bool;
+
 typedef struct s_circlar_queue
 {
 	int						data;
 	struct s_circlar_queue	*next;
 }	t_circular_q;
+
+t_state	write_error_message(char *message);
+t_state	is_int_max(int argc, char **argv);
+t_bool	is_duplicate(int argc, char **argv);
+void	check_error(int argc, char **argv);
+
+size_t	change_size_t(const char *str);
+size_t	ft_strlen(const char	*s);
+long	ft_atoi(const char	*str);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 #endif
