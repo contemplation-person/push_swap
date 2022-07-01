@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:20:14 by juha              #+#    #+#             */
-/*   Updated: 2022/06/28 12:11:26 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/01 09:21:18 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ int	write_error_message(void);
 
 int	main(int argc, char **argv)
 {
-	check_error(argc, argv);
+	t_node	*head;
 
+	check_error(argc, argv);
+	
 		
 	number_index(argc, argv);
 	return (0);

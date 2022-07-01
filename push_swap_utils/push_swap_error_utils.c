@@ -6,13 +6,13 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:14:58 by juha              #+#    #+#             */
-/*   Updated: 2022/06/30 13:37:08 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/01 09:21:04 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_state	write_error_message(char *message);
+t_bool	write_error_message(char *message);
 t_bool	is_int_max(char *argv);
 t_bool	is_duplicate(int argc, char **argv);
 t_bool	is_wrong_input(char *argv);
@@ -73,16 +73,16 @@ t_bool	is_wrong_input(char *argv)
 	return (FALSE);
 }
 
-t_state	write_error_message(char *message)
+t_bool	write_error_message(char *message)
 {
 	write(2, message, ft_strlen(message));
-	return (SUCCESS);
+	return (TRUE);
 }
 
 void	check_error(int argc, char **argv)
 {
 	int		i;
-	t_state	state;
+	t_bool	state;
 
 	if (argc < 2)
 		state = write_error_message("errorCode 1-1 : 인자가 없거나 적습니다.");

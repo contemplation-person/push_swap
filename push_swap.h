@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 11:30:29 by juha              #+#    #+#             */
-/*   Updated: 2022/06/30 13:37:10 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/01 09:21:15 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,30 @@ typedef enum s_cmd
 	PB = 5
 }t_cmd;
 
-typedef enum s_state
-{
-	ERROR = 0,
-	SUCCESS = 1,
-	CONTINUE = 2
-}t_state;
-
 typedef enum s_bool
 {
 	TRUE = -1,
 	FALSE = 0
 }t_bool;
 
-typedef struct s_circlar_queue
+typedef enum s_edge
 {
-	int						data;
-	struct s_circlar_queue	*next;
-}	t_circular_q;
+	BODY = 0,
+	FRONT = 70,
+	TAIL = 84
+}t_edge;
 
-t_state	write_error_message(char *message);
+typedef struct s_node
+{
+	int				data;
+	int				idx;
+	t_edge			edge;
+	char			position;
+	struct s_node	*next;
+	struct s_node	*pre;
+}	t_node;
+
+t_bool	write_error_message(char *message);
 t_bool	is_int_max(char *argv);
 t_bool	is_duplicate(int argc, char **argv);
 t_bool	is_wrong_input(char *argv);
