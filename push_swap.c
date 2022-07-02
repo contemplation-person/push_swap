@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 {
 	t_node	*head;
 
+	split_num(&argc, &argv);
 	check_error(argc, argv);
 	
 		
