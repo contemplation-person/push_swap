@@ -14,7 +14,6 @@
 #include "stdlib.h"
 
 int	*number_index(int argc, char **argv);
-int	write_error_message(void);
 /*
 	atoi;
 	printf("%d", argc);
