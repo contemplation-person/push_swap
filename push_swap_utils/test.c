@@ -5,7 +5,7 @@
 
 int	main(int argc, char **argv)
 {	
-	split_num(&argc, argv);
+	split_num(&argc, &argv);
 	while (*(++argv))
 	{
 		printf("%s", *argv);

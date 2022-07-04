@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 10:23:32 by juha              #+#    #+#             */
-/*   Updated: 2022/07/04 16:16:50 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/04 20:50:23 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,31 @@
 #include <stdio.h>
 
 
-char	**split_num(int *argc, char **argv)
+void	split_num(int *argc, char ***argv)
 {
-	ft_split(*(argv + 1), ' ', argc);
-	return (argv);
+	int		cut_word;
+	int		i;
+	char	**next_string;
+
+	cut_word = 0;
+	while (++*argv)
+	{
+		i = 0;
+		while (**argv + i)
+		{
+			if (**argv[i] == ' ')
+				cut_word = 1;
+			if (cut_word)
+				break ;
+			i++;
+		}
+		next_string = *(argv + 1);
+		if (cut_word)
+			*argv = ft_split(**argv, ' ', argc);
+		while (++(**argv))
+			;
+		*argv = next_string;
+	}
 }
 
 // char	**split_num(int *argc, char **argv)

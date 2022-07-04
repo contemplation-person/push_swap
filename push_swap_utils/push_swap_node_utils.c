@@ -6,11 +6,11 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 08:13:17 by juha              #+#    #+#             */
-/*   Updated: 2022/07/04 08:52:18 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/04 18:56:48 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_node	*init_node(t_node *head, int data)
 {

@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 11:30:29 by juha              #+#    #+#             */
-/*   Updated: 2022/07/04 15:37:22 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/04 19:25:26 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ char			*ft_substr(char const *s, size_t start, size_t len);
 char			*ft_strdup(const char *s1);
 char			**ft_split(char const *s, char c, int *argc);
 
-char	**split_num(int *argc, char **argv);
+void			split_num(int *argc, char ***argv);
 #endif
