@@ -5,6 +5,10 @@
 
 int	main(int argc, char **argv)
 {	
-	check_error(argc, argv);
+	split_num(&argc, argv);
+	while (*(++argv))
+	{
+		printf("%s", *argv);
+	}
 	return (0);
 }

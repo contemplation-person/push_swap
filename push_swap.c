@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:20:14 by juha              #+#    #+#             */
-/*   Updated: 2022/07/01 09:21:18 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/04 08:53:38 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	main(int argc, char **argv)
 
 	split_num(&argc, &argv);
 	check_error(argc, argv);
+
 	
-		
 	number_index(argc, argv);
 	return (0);
 }

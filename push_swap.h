@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 11:30:29 by juha              #+#    #+#             */
-/*   Updated: 2022/07/01 09:21:15 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/04 15:37:22 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,23 @@ typedef struct s_node
 	struct s_node	*pre;
 }	t_node;
 
-t_bool	write_error_message(char *message);
-t_bool	is_int_max(char *argv);
-t_bool	is_duplicate(int argc, char **argv);
-t_bool	is_wrong_input(char *argv);
-void	check_error(int argc, char **argv);
+t_bool			write_error_message(char *message);
+t_bool			is_int_max(char *argv);
+t_bool			is_duplicate(int argc, char **argv);
+t_bool			is_wrong_input(char *argv);
+t_bool			check_error(int argc, char **argv);
 
+size_t			change_size_t(const char *str);
+size_t			ft_strlen(const char	*s);
+long			ft_atoi(const char	*str);
+int				ft_memcmp(const void *s1, const void *s2, size_t n);
+static char		**make_pp(char *s, char c, size_t cnt);
+static void		free_all(char **pp, size_t cnt);
+static size_t	cnt_word(char *str, char c);
+static char		*make_p(char *s, char c);
+char			*ft_substr(char const *s, size_t start, size_t len);
+char			*ft_strdup(const char *s1);
+char			**ft_split(char const *s, char c, int *argc);
 
-size_t	change_size_t(const char *str);
-size_t	ft_strlen(const char	*s);
-long	ft_atoi(const char	*str);
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
-
+char	**split_num(int *argc, char **argv);
 #endif

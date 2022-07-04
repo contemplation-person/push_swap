@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:14:58 by juha              #+#    #+#             */
-/*   Updated: 2022/07/01 09:21:04 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/04 09:58:23 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@ t_bool	write_error_message(char *message);
 t_bool	is_int_max(char *argv);
 t_bool	is_duplicate(int argc, char **argv);
 t_bool	is_wrong_input(char *argv);
-void	check_error(int argc, char **argv);
+t_bool	check_error(int argc, char **argv);
 
+/*
+	1 2 3 "1 2";
+*/
 t_bool	is_duplicate(int argc, char **argv)
 {
 	size_t	argv_len;
@@ -49,7 +52,8 @@ t_bool	is_int_max(char *argv)
 	size_t	i;
 	long	argv_toi;
 
-	if (*argv == '-')
+	argv_len = ft_strlen(argv);
+	if (*argv == '-' || *argv == '+')
 		argv_len = ft_strlen(argv + 1);
 	if (10 >= argv_len)
 	{
@@ -62,7 +66,7 @@ t_bool	is_int_max(char *argv)
 
 t_bool	is_wrong_input(char *argv)
 {
-	if (*argv == '-')
+	if (*argv == '-' || *argv == '+')
 		argv++;
 	while (*argv)
 	{
@@ -79,15 +83,24 @@ t_bool	write_error_message(char *message)
 	return (TRUE);
 }
 
-void	check_error(int argc, char **argv)
+t_bool	check_error(int argc, char **argv)
 {
 	int		i;
+	int		is_split;
 	t_bool	state;
 
+	is_split = 0;
 	if (argc < 2)
 		state = write_error_message("errorCode 1-1 : 인자가 없거나 적습니다.");
-	else if (is_duplicate(argc, argv))
+	
+	if (is_duplicate(argc, argv))
 		state = write_error_message("errorCode 2-1 : 인자가 중복입니다.");
+	/*
+	ft_split()
+		split
+		아래에 값을 넣고
+		is_spit = 1로 바꿔주기.
+	*/
 	while (*(++argv))
 	{
 		if (is_wrong_input(*argv))
@@ -97,5 +110,5 @@ void	check_error(int argc, char **argv)
 		if (state)
 			exit(1);
 	}
-	return ;
+	return (is_split);
 }
