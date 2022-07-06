@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:14:58 by juha              #+#    #+#             */
-/*   Updated: 2022/07/04 09:58:23 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/06 13:13:09 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@ t_bool	is_duplicate(int argc, char **argv);
 t_bool	is_wrong_input(char *argv);
 t_bool	check_error(int argc, char **argv);
 
-/*
-	1 2 3 "1 2";
-*/
 t_bool	is_duplicate(int argc, char **argv)
 {
 	size_t	argv_len;
@@ -92,23 +89,16 @@ t_bool	check_error(int argc, char **argv)
 	is_split = 0;
 	if (argc < 2)
 		state = write_error_message("errorCode 1-1 : 인자가 없거나 적습니다.");
-	
 	if (is_duplicate(argc, argv))
 		state = write_error_message("errorCode 2-1 : 인자가 중복입니다.");
-	/*
-	ft_split()
-		split
-		아래에 값을 넣고
-		is_spit = 1로 바꿔주기.
-	*/
 	while (*(++argv))
 	{
 		if (is_wrong_input(*argv))
 			state = write_error_message("errorCode 3-1 : 인자가 숫자가 아닙니다.");
 		else if (!is_int_max(*argv))
 			state = write_error_message("errorCode 4-1 : 잘못된 인자값입니다.");
-		if (state)
-			exit(1);
 	}
+	if (state)
+		exit(1);
 	return (is_split);
 }

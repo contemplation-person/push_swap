@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:43:18 by juha              #+#    #+#             */
-/*   Updated: 2022/07/04 18:52:05 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/06 09:22:18 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,6 @@ size_t			change_size_t(const char *str);
 size_t			ft_strlen(const char	*s);
 long			ft_atoi(const char	*str);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
-static char		**make_pp(char *s, char c, size_t cnt);
-static void		free_all(char **pp, size_t cnt);
-static size_t	cnt_word(char *str, char c);
-static char		*make_p(char *s, char c);
-char			*ft_substr(char const *s, size_t start, size_t len);
-char			*ft_strdup(const char *s1);
-char			**ft_split(char const *s, char c, int *argc);
 
 char	*ft_strdup(const char *s1)
 {
@@ -138,88 +131,4 @@ long	ft_atoi(const char *str)
 			return (-1);
 	}
 	return (cnt * is_minus);
-}
-
-char	**ft_split(char const *s, char c, int *argc)
-{
-	char	**pp;
-	char	*str;
-
-	str = (char *)s;
-	while (*str && *str == c)
-		str++;
-	pp = make_pp(str, c, cnt_word(str, c));
-	argc += cnt_word(str, c);
-	return (pp);
-}
-
-static size_t	cnt_word(char *str, char c)
-{
-	char	*s;
-	size_t	cnt;
-
-	s = str;
-	cnt = 0;
-	while (*str && *str == c)
-		str++;
-	while (*s)
-	{
-		cnt++;
-		while (*s && *s != c)
-			s++;
-		while (*s && *s == c)
-			s++;
-	}
-	return (cnt);
-}
-
-static char	*make_p(char *s, char c)
-{
-	size_t	cnt;
-
-	cnt = 0;
-	while (s[cnt] && s[cnt] != c)
-		cnt++;
-	return (ft_substr(s, 0, cnt));
-}
-
-static void	free_all(char **pp, size_t cnt)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < cnt)
-	{
-		free(pp[i]);
-		pp[i++] = 0;
-	}
-	free(pp);
-}
-
-static char	**make_pp(char *s, char c, size_t cnt)
-{
-	size_t	i;
-	char	**pp;
-
-	pp = (char **)malloc(sizeof(char *) * (cnt + 1));
-	if (!pp)
-		return (0);
-	i = 0;
-	while (i < cnt)
-	{
-		pp[i] = make_p(s, c);
-		if (pp[i] == 0)
-		{
-			free_all(pp, i);
-			pp = 0;
-			return (0);
-		}
-		i++;
-		while (*s && *s != c)
-			s++;
-		while (*s && *s == c)
-			s++;
-	}
-	pp[i] = 0;
-	return (pp);
 }
