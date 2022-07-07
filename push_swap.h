@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 11:30:29 by juha              #+#    #+#             */
-/*   Updated: 2022/07/06 11:11:06 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/07 10:04:48 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,5 @@ size_t			change_size_t(const char *str);
 size_t			ft_strlen(const char	*s);
 long			ft_atoi(const char	*str);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
-
-void			make_stack(t_stack **top_a, t_stack **tail_a, \
-int argc, char **argv);
 
 #endif
