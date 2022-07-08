@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 11:30:29 by juha              #+#    #+#             */
-/*   Updated: 2022/07/07 10:04:48 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/07 10:51:45 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <sys/types.h>
 /* 
 	0 이면 앞에 두개를 끌어다 사용!
 */
@@ -35,12 +36,10 @@ typedef enum s_bool
 	FALSE = 0
 }t_bool;
 
-typedef struct s_stack
+typedef struct t_stack
 {
-	int				idx;
-	int				data;
-	struct s_stack	*next;
-	struct s_stack	*prev;
+	int	data;
+	int	idx;
 }	t_stack;
 
 t_bool			write_error_message(char *message);
@@ -53,5 +52,6 @@ size_t			change_size_t(const char *str);
 size_t			ft_strlen(const char	*s);
 long			ft_atoi(const char	*str);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
+void			ft_bzero(void *s, size_t n);
 
 #endif
