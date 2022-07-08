@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"__locale": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"algorithm": "c"
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 11:30:29 by juha              #+#    #+#             */
-/*   Updated: 2022/07/07 10:51:45 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/08 12:38:56 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ typedef enum s_bool
 	FALSE = 0
 }t_bool;
 
-typedef struct t_stack
+typedef struct t_output
 {
-	int	data;
-	int	idx;
-}	t_stack;
+	int				data;
+	struct t_output	*next;
+}	t_output;
 
 t_bool			write_error_message(char *message);
 t_bool			is_int_max(char *argv);
