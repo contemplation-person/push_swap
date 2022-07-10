@@ -52,14 +52,14 @@ void	init_arr(int argc, char **argv, int **a, int **b)
 }
 
 // follow pointer
-t_bool	is_sorting(int *a, int argc)
+t_bool	is_sorting(int *a, int location_p_top_a, int size)
 {
 	int	i;
 
 	i = 0;
-	while (i < argc - 1)
+	while (i < size)
 	{
-		if (a[i / (argc - 1)] != i + 1)
+		if (a[location_p_top_a++ % (size)] != i + 1)
 			return (FALSE);
 		i++;
 	}
@@ -68,10 +68,13 @@ t_bool	is_sorting(int *a, int argc)
 
 void	sort_arr(int argc, int *a, int *b, t_output *cmd_group)
 {
-	while (is_sorting(a, argc))
-	{
+	int	size_a;
 
-	}
+	size_a = argc - 1;
+	if (is_sorting(a, 0, size_a))
+		return ;
+	else if (argc - 1 <= 5)
+		excute_hardcording(a, b, size_a);
 }
 #include <stdio.h>
 
@@ -82,6 +85,8 @@ int	main(int argc, char **argv)
 	t_output	*cmd_group;
 
 	check_error(argc, argv);
+	if (argc - 1 == 1)
+		return (0);
 	init_arr(argc, argv, &a, &b);
 	sort_arr(argc, a, b, cmd_group);
 	return (0);
