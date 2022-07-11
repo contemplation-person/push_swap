@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 11:30:29 by juha              #+#    #+#             */
-/*   Updated: 2022/07/08 12:38:56 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/11 16:54:58 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,36 @@
 */
 typedef enum s_cmd
 {
-	SA = 1,
-	SB = -1,
-	RA = 2,
-	RB = -2,
-	RRA = 3,
-	RRB = -3,
-	PA = 4,
-	PB = 5
+	RR = -1,
+	P = 0,
+	R = 1,
+	S = 2,
 }t_cmd;
+
+typedef enum s_pos
+{
+	A = 0,
+	B = 1,
+}t_pos;
 
 typedef enum s_bool
 {
 	TRUE = -1,
-	FALSE = 0
+	FALSE = 0,
 }t_bool;
+
+typedef struct s_stack_arr
+{
+	int	*stack;
+	int	p_pos;
+	int	size;
+}t_stack_arr;
 
 typedef struct t_output
 {
-	int				data;
-	struct t_output	*next;
+	t_cmd			cmd;
+	t_pos			pos;
+	struct t_output	*next_node;
 }	t_output;
 
 t_bool			write_error_message(char *message);
@@ -54,4 +64,6 @@ long			ft_atoi(const char	*str);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			ft_bzero(void *s, size_t n);
 
+void			new_one_way_node(t_output *head, t_cmd	cmd, t_pos pos);
+void			del_one_way_node(t_output *head);
 #endif
