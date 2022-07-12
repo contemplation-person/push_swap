@@ -6,11 +6,16 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 08:18:46 by juha              #+#    #+#             */
-/*   Updated: 2022/07/11 17:30:46 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/12 10:37:06 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	r(t_output *head, char stack_name, t_stack_arr *changing);
+void	rr(t_output *head, char stack_name, t_stack_arr *changing);
+void	s(t_output *head, char stack_name, t_stack_arr *changing);
+void	p(t_output *head, char stack_name, t_stack_arr *a, t_stack_arr *b);
 
 void	r(t_output *head, char stack_name, t_stack_arr *changing)
 {
@@ -63,18 +68,23 @@ void	p(t_output *head, char stack_name, t_stack_arr *a, t_stack_arr *b)
 			return ;
 		new_one_way_node(head, P, A);
 		a->p_pos += 1;
+		while (a->stack[a->p_pos] != 0)
+			a->p_pos += 1;
 		a->stack[a->p_pos] = b->stack[b->p_pos];
 		b->stack[b->p_pos] = 0;
 		b->p_pos -= 1;
+		while (b->stack[b->p_pos] != 0)
+			b->p_pos -= 1;
+		return ;
 	}
-	else
-	{
-		if (b->size == 0)
-			return ;
-		new_one_way_node(head, P, B);
+	if (b->size == 0)
+		return ;
+	new_one_way_node(head, P, B);
+	b->p_pos += 1;
+	while (b->stack[b->p_pos] != 0)
 		b->p_pos += 1;
-		b->stack[b->p_pos] = a->stack[a->p_pos];
-		a->stack[a->p_pos] = 0;
+	b->stack[b->p_pos] = a->stack[a->p_pos];
+	a->stack[a->p_pos] = 0;
+	while (a->stack[a->p_pos] != 0)
 		a->p_pos -= 1;
-	}
 }
