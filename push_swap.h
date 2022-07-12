@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 11:30:29 by juha              #+#    #+#             */
-/*   Updated: 2022/07/12 10:34:49 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/12 22:55:47 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef enum s_cmd
 	P = 0,
 	R = 1,
 	S = 2,
+	DEL = 10,
 }t_cmd;
 
 typedef enum s_pos
