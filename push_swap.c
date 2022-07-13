@@ -83,7 +83,6 @@ int	main(int argc, char **argv)
 	t_stack_arr	b;
 	t_output	*cmd_group;
 
-	cmd_group->next_node = NULL;
 	check_error(argc, argv);
 	if (argc - 1 == 1)
 		return (0);
