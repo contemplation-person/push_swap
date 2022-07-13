@@ -6,19 +6,19 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 11:03:54 by juha              #+#    #+#             */
-/*   Updated: 2022/07/12 10:37:05 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/13 14:51:26 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_3(t_stack_arr *a, t_output *head);
-void	sort_4(t_stack_arr *a, t_stack_arr *b, t_output *head);
-void	sort_5(t_stack_arr *a, t_stack_arr *b, t_output *head);
-void	excute_hardcoding(t_output *head, t_stack_arr *a, t_stack_arr *b);
-int		next_p_pos(t_stack_arr *arr, int cnt_p);
+void	sort_3(t_arr_info *a, t_output *head);
+void	sort_4(t_arr_info *a, t_arr_info *b, t_output *head);
+void	sort_5(t_arr_info *a, t_arr_info *b, t_output *head);
+void	excute_hardcoding(t_output *head, t_arr_info *a, t_arr_info *b);
+int		next_p_pos(t_arr_info *arr, int cnt_p);
 
-int	next_p_pos(t_stack_arr *arr, int cnt_p)
+int	next_p_pos(t_arr_info *arr, int cnt_p)
 {
 	int	i;
 
@@ -31,7 +31,7 @@ int	next_p_pos(t_stack_arr *arr, int cnt_p)
 	return (arr->p_pos);
 }
 /*
-void	r_sort_3(t_stack_arr *b, t_output *head)
+void	r_sort_3(t_arr_info *b, t_output *head)
 {
 	if (b->size == 0 || \
 	(b->stack[b->p_pos] == 3 && b->stack[next_p_pos(b, 1)] == 2))
@@ -51,7 +51,7 @@ void	r_sort_3(t_stack_arr *b, t_output *head)
 	}	
 }
 */
-void	sort_3(t_stack_arr *a, t_output *head)
+void	sort_3(t_arr_info *a, t_output *head)
 {
 	if (a->size == 0)
 		return ;
@@ -73,7 +73,7 @@ void	sort_3(t_stack_arr *a, t_output *head)
 	}
 }
 
-void	sort_4(t_stack_arr *a, t_stack_arr *b, t_output *head)
+void	sort_4(t_arr_info *a, t_arr_info *b, t_output *head)
 {
 	int	search_4;
 
@@ -94,7 +94,7 @@ void	sort_4(t_stack_arr *a, t_stack_arr *b, t_output *head)
 	p(head, 'a', a, b);
 }
 
-void	sort_5(t_stack_arr *a, t_stack_arr *b, t_output *head)
+void	sort_5(t_arr_info *a, t_arr_info *b, t_output *head)
 {
 	int	search_5;
 
@@ -123,7 +123,7 @@ void	sort_5(t_stack_arr *a, t_stack_arr *b, t_output *head)
 	p(head, 'a', a, b);
 }
 
-void	excute_hardcoding(t_output *head, t_stack_arr *a, t_stack_arr *b)
+void	excute_hardcoding(t_output *head, t_arr_info *a, t_arr_info *b)
 {
 	int	top_a;
 

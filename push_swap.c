@@ -6,7 +6,7 @@
 /*   By: juha <juha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:20:14 by juha              #+#    #+#             */
-/*   Updated: 2022/07/12 10:37:22 by juha             ###   ########seoul.kr  */
+/*   Updated: 2022/07/13 14:55:21 by juha             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,12 @@ void	make_idx(int argc, int *a, int *b)
 	ft_bzero(*b, 4 * (argc - 1));
 }
 
-void	init_arr(int argc, char **argv, t_stack_arr *a, t_stack_arr *b)
+void	init_arr(int argc, char **argv, t_arr_info *a, t_arr_info *b)
 {
 	int	i;
 
+	if (argc - 1 == 1)
+		return (0);
 	a->size = argc - 2;
 	b->size = argc - 2;
 	a->p_pos = 0;
@@ -44,10 +46,7 @@ void	init_arr(int argc, char **argv, t_stack_arr *a, t_stack_arr *b)
 		exit(1);
 	b->stack = malloc((argc - 1) * sizeof(int));
 	if (!b->stack)
-	{
-		free(a->stack);
 		exit(1);
-	}
 	i = 0;
 	while (*(++argv))
 		(b->stack)[i++] = (int)ft_atoi(*argv);
@@ -69,24 +68,22 @@ t_bool	is_sorting(int *a, int pos_p_top_a, int size)
 	return (TRUE);
 }
 
-void	sort_arr(t_stack_arr *a, t_stack_arr *b, t_output *cmd_group)
+int	sort_arr(t_arr_info *a, t_arr_info *b, t_output *cmd_group)
 {
 	if (is_sorting(a->stack, 0, a->size))
-		return ;
+		return (0);
 	else if (a->size <= 5)
-		excute_hardcording(a, b);
+		excute_hardcoding(cmd_group, a, b);
+	return (1);
 }
 #include <stdio.h>
 int	main(int argc, char **argv)
 {
-	t_stack_arr	a;
-	t_stack_arr	b;
+	t_arr_info	a;
+	t_arr_info	b;
 	t_output	*cmd_group;
 
 	check_error(argc, argv);
-	if (argc - 1 == 1)
-		return (0);
-	init_struct(argc, argv, &a, &b);
-	sort_arr(&a, &b, cmd_group);
-	return (0);
+	init_arr(argc, argv, &a, &b);
+	return (sort_arr (&a, &b, cmd_group));
 }
